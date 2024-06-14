@@ -16,7 +16,7 @@ function ProjectCards({project}) {
   return (
     <>
     <Card className='shadow rounded btn' onClick={handleShow} >
-      <Card.Img variant="top" src={project?`${BASE_URL}/uploads/${project.projectImage}`:vedioscnshort} style={{height:'220px',width:'400px'}}/>
+      <Card.Img className='w-100' variant="top" src={project?`${BASE_URL}/uploads/${project.projectImage}`:vedioscnshort} style={{height:'220px',width:'400px'}}/>
       <Card.Body>
         <Card.Title style={{textAlign:'center'}}><h4>{project.title}</h4></Card.Title>
       </Card.Body>

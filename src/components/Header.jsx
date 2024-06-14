@@ -14,12 +14,14 @@ function Header({dashboard}) {
   return (
     <>
        <div style={{backgroundColor:'purple'}}>
-         <div className='d-flex' style={{marginLeft:'250px'}}>
-             <i style={{fontSize:'40px',color:'white'}} class="fa-solid fa-diagram-project  mb-4 mt-4"></i> 
-              <Link to={'/'} style={{textDecoration:'none'}}><h2 className='ms-3  mb-4 mt-4'>Project Fair</h2></Link>
+         <div className='d-flex'>
+             <div className='d-flex ms-3'>
+               <i style={{fontSize:'40px',color:'white'}} class="fa-solid fa-diagram-project  mb-4 mt-4"></i> 
+                <Link to={'/'} style={{textDecoration:'none'}}><h2 className='mt-4 '>Project Fair</h2></Link>
+             </div>
               {
                 dashboard &&
-                <button onClick={handleLogout} className='btn btn-warning mt-3' style={{marginLeft:'700px',height:'50px'}}>logout <i class="fa-solid fa-power-off"></i></button>
+                <div className='ms-auto me-4'><button onClick={handleLogout} className='btn btn-warning mt-3 mb-1' >logout <i class="fa-solid fa-power-off"></i></button></div>
               }
          </div>
        </div> 

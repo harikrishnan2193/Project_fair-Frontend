@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Row } from 'react-bootstrap'
 import titleImage from '../images/9700_4_04.jpg'
 import ProjectCards from '../components/ProjectCards'
 import { Link } from 'react-router-dom'
 import { homeprojectAPI } from '../services/allAPI'
+
 
 export default function Home() {
     const [islogin , setIslogin] = useState(false)
@@ -28,23 +28,18 @@ export default function Home() {
 
   return (
     <>
-        <div style={{width:'100%',height:'100vh',backgroundColor:'gray'}}>
-            <div className='container-fluid rounded'>
-                <Row className='align-items-center p-5'>
-                    <Col sm={12} md={6}>
-                        <h1 style={{fontSize:'80px',color:'white'}}>Project <span style={{color:'yellowgreen'}}>Fair</span></h1>
-                        <p style={{color:'white'}}>One <span style={{color:'purple'}}>Stop destination for all software development project</span></p>
+        <div className="row" style={{backgroundColor:'gray'}}>
+            <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center align-items-center flex-column">
+                <h1 className='ms-auto' style={{fontSize:'60px',color:'white'}}>Project <span style={{color:'yellowgreen'}}>Fair</span></h1>
+                        <p className='ms-auto' style={{color:'white'}}>One <span style={{color:'purple'}}>Stop destination for all software development project</span></p>
                     {islogin ?
-                        <Link to={'/dashboard'}><button className='btn btn-success rounded'>Manage Project <i class="fa-solid fa-arrow-right"></i></button></Link> :
-                        <Link to={'/login'}><button className='btn btn-success rounded'>Get Start <i class="fa-solid fa-arrow-right"></i></button></Link>
+                        <Link className='ms-auto mt-4' to={'/dashboard'}><button className='btn btn-success rounded me-2'>Manage Project <i class="fa-solid fa-arrow-right"></i></button></Link> :
+                        <Link className='ms-auto mt-4' to={'/login'}><button className='btn btn-success rounded me-2'>Get Start <i class="fa-solid fa-arrow-right"></i></button></Link>
                     }
-                    </Col>
-                    <Col sm={12} md={6}>
-                       <img src={titleImage} alt="no image" className='w-75 ms-5' style={{marginTop:'100px',borderRadius:'30px'}}/>
-                    </Col>
-                </Row>
             </div>
-
+            <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center">
+            <img width={'450px'} src={titleImage} alt="no image" className='  mb-5' style={{marginTop:'100px',borderRadius:'30px'}}/>
+            </div>
         </div>
 
         <div className='mt-5 all-project mb-5'>

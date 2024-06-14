@@ -21,10 +21,10 @@ export default function Dashboard() {
         <h2 className='mt-3 ms-3'>Welcome<span className='text-warning'>{username}</span></h2>
        </div>
        <div className="row mt-5 mb-5">
-        <div className="col-8">
+        <div className="col-lg-8">
           <MyProjects/>
         </div>
-        <div className="col-4">
+        <div className="col-lg-4">
           <Profile/>
         </div>
        </div>

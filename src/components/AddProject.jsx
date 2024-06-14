@@ -68,7 +68,7 @@ function AddProject() {
 
   //function to add project
 
-  const handleProject = async(e)=>{
+  const handleProject = async (e) =>{
     e.preventDefault()
 
     const { title,language,github,website,overview,projectImage} = projectDetails
@@ -97,6 +97,7 @@ function AddProject() {
 
        const result = await addProjectAPI(reqBody,reqHeader)
        console.log(result);
+
        if(result.status===200){
         console.log(result.data);
          toast.success('Project added succesfully')
@@ -115,50 +116,54 @@ function AddProject() {
 
   return (
     <>
-        <Button variant="success" onClick={handleShow}>
+      <Button variant="success" onClick={handleShow}>
         Add Project
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Project Detils</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <div className="row">
-                <div className="col-6">
-                    <label htmlFor='upload'>
-                        <input id='upload' type="file" style={{display:'none'}} onChange={(e)=>setProjectDetails({...projectDetails,projectImage:e.target.files[0]})}/>
-                        <img src={preview?preview:"https://t4.ftcdn.net/jpg/02/83/72/41/240_F_283724163_kIWm6DfeFN0zhm8Pc0xelROcxxbAiEFI.jpg"} alt="no image" width='100%'/>
-                    </label>
+      <div className='row'>
+        <div className=''>
+          <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Project Detils</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <div className="row">
+                    <div className="col-6">
+                        <label htmlFor='upload'>
+                            <input id='upload' type="file" style={{display:'none'}} onChange={(e)=>setProjectDetails({...projectDetails,projectImage:e.target.files[0]})}/>
+                            <img src={preview?preview:"https://t4.ftcdn.net/jpg/02/83/72/41/240_F_283724163_kIWm6DfeFN0zhm8Pc0xelROcxxbAiEFI.jpg"} alt="no image" width='100%'/>
+                        </label>
+                    </div>
+                    <div className="col-6">
+                        <div className='mb-3 w-100'>
+                            <input type="text" className='form-control' placeholder='Project Title' value={projectDetails.title} onChange={(e)=>setProjectDetails({...projectDetails,title:e.target.value})} />
+                        </div>
+                        <div className='mb-3 w-100'>
+                            <input type="text" className='form-control' placeholder='Language' value={projectDetails.language} onChange={(e)=>setProjectDetails({...projectDetails,language:e.target.value})}/>
+                        </div>
+                        <div className='mb-3 w-100'>
+                            <input type="text" className='form-control' placeholder='GitHub Link' value={projectDetails.github} onChange={(e)=>setProjectDetails({...projectDetails,github:e.target.value})}/>
+                        </div>
+                        <div className='mb-3 w-100'>
+                            <input type="text" className='form-control' placeholder='Website Link' value={projectDetails.website} onChange={(e)=>setProjectDetails({...projectDetails,website:e.target.value})}/>
+                        </div>
+                        <div className='mb-3 w-100'>
+                            <textarea cols='30' rows='3' type="text"  className='form-control' placeholder='Project Overview'  value={projectDetails.overview} onChange={(e)=>setProjectDetails({...projectDetails,overview:e.target.value})}/>
+                        </div>
+                    </div>
                 </div>
-                <div className="col-6">
-                    <div className='mb-3 w-100'>
-                        <input type="text" className='form-control' placeholder='Project Title' value={projectDetails.title} onChange={(e)=>setProjectDetails({...projectDetails,title:e.target.value})} />
-                    </div>
-                    <div className='mb-3 w-100'>
-                        <input type="text" className='form-control' placeholder='Language' value={projectDetails.language} onChange={(e)=>setProjectDetails({...projectDetails,language:e.target.value})}/>
-                    </div>
-                    <div className='mb-3 w-100'>
-                        <input type="text" className='form-control' placeholder='GitHub Link' value={projectDetails.github} onChange={(e)=>setProjectDetails({...projectDetails,github:e.target.value})}/>
-                    </div>
-                    <div className='mb-3 w-100'>
-                        <input type="text" className='form-control' placeholder='Website Link' value={projectDetails.website} onChange={(e)=>setProjectDetails({...projectDetails,website:e.target.value})}/>
-                    </div>
-                    <div className='mb-3 w-100'>
-                        <textarea cols='30' rows='3' type="text"  className='form-control' placeholder='Project Overview'  value={projectDetails.overview} onChange={(e)=>setProjectDetails({...projectDetails,overview:e.target.value})}/>
-                    </div>
-                </div>
-            </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose1}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleProject}>
-            Add
-          </Button>
-        </Modal.Footer>
-      </Modal>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose1}>
+                Cancel
+              </Button>
+              <Button variant="primary" onClick={handleProject}>
+                Add
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
+      </div>
       <ToastContainer theme='colored' autoClose='2000'position='top-center'/>
     </>
   )

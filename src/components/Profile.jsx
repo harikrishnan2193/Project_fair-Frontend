@@ -97,7 +97,7 @@ function Profile() {
 
   return (
     <>
-      <div className='card shadow p-5 me-3 bg' style={{backgroundColor:'orange'}}>
+      <div className='card shadow p-5 me-3 bg ms-3 mt-2' style={{backgroundColor:'orange'}}>
         <div className='d-flex justify-content-between ms-3 mt-3 ' >
           <h3 >Profile</h3>
           <button onClick={() => setOpen(!open)} className='btn btn-outline-info'><i class="fa-solid fa-upload fa-rotate-180 "></i></button>

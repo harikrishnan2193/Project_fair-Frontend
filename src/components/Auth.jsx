@@ -80,25 +80,28 @@ function Auth({register}) {
   return (
     <>
         <p className='me-4 mt-5 ms-5'><Link to={'/'} style={{textDecoration:'none'}}><i class="fa-solid fa-arrow-right"></i> Back to Home</Link></p>
-        <div style={{width:'100%',height:'100%'}} className='d-flex justify-content-center align-items-center'>
-            
-            <div className='card shadow bg-success rounded p-5' style={{marginLeft:'100px',marginRight:'100px',marginBottom:'60px'}}>
-                <div className="row align-items-center">
-                    <div className="col">
-                        <img className='w-75 ms-4' style={{height:'300px',borderRadius:'20px'}} src={titleImage} alt="" />
-                    </div>
-                    <div className="col">
-                        <div className='d-flex align-items-center justify-content-center'>
-                        <div className='d-flex'>
-                          <i style={{fontSize:'40px',color:'white'}} class="fa-solid fa-diagram-project  mb-4 mt-4"></i> 
-                          <Link to={'/'} style={{textDecoration:'none'}}><h2 className='ms-3  mb-4 mt-4'>Project Fair</h2></Link>
-                          <h5 className='text-light ms-5 mt-4'>
+        
+        <div className="row">
+          <div className="col-1"></div>
+          <div className="col-10">
+            <div className='card shadow bg-success rounded p-5 mb-5'>
+              <div className='row'>
+                <div className="col-lg-5 d-flex align-items-center">
+                <img className='w-100 ' style={{borderRadius:'20px'}} src={titleImage} alt="" />
+                </div>
+                <div className="col-lg-7 d-flex align-items-center justify-content-center flex-column">
+
+                
+                  <Link to={'/'} style={{textDecoration:'none'}}><h2 className='ms-3  mt-4'><i style={{fontSize:'40px',color:'white'}} class="fa-solid fa-diagram-project  mb-4 mt-4"></i>Project Fair</h2></Link>
+                
+                  <h5 className='text-light  mt-2 mb-4'>
                             {
                               RegisterForme ? "Sign up to your account":"sighn in to your account"
                             }
                           </h5>
-                          <div style={{marginTop:'100px',marginLeft:'-200px'}}>
-                            { RegisterForme&&
+
+                  <div>
+                  { RegisterForme&&
                             <input className='mb-2 form-control' type="text" placeholder='Enter User Name' value={userData.username} onChange={(e)=>setUserData({...userData,username:e.target.value})}/>}
                             <input type="text" className='form-control' placeholder='Enter Your Email-Id' value={userData.email} onChange={(e)=>setUserData({...userData,email:e.target.value})} />
                             <input className='mt-2 form-control' type="password"  placeholder='Enter Your Password' value={userData.password} onChange={(e)=>setUserData({...userData,password:e.target.value})}/>
@@ -114,13 +117,14 @@ function Auth({register}) {
                               <p className='fw-bold mt-3'>New User...? click hear to <Link to={'/register'}>register</Link></p>
                             </div>
                             }
-                          </div>
-                        </div>
-                        </div>
-                    </div>
+                  </div>        
+                
                 </div>
+              </div>
             </div>
-            <ToastContainer theme='colored' autoClose='2000'position='top-center'/>
+          </div>
+          <div className="col-1"></div>
+          <ToastContainer theme='colored' autoClose='2000'position='top-center'/>
         </div>
     </>
   )
